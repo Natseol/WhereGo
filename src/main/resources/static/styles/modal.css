@@ -1,0 +1,61 @@
+.modal-line {
+    --bs-modal-width: 315px;
+    justify-content: center;
+}
+
+.modal-content {
+    padding: 10px;
+}
+
+.modal-star-box {
+text-align: right;
+}   
+
+.modal-star {
+    width: 30px;
+    border: 0px;
+    background-color: unset;
+    margin: 10px 15px;
+}
+
+.modal-img-box {
+    height : 282px;
+    width: 218px;
+    background-color: gray;
+    align-self: center;
+}
+
+.modal-content-box {
+    padding: 25px 20px;
+    font-size: 14px;
+}
+
+.modal-codename {
+    font-weight: bold;
+}
+
+.modal-title {
+    font-weight: bold;
+    font-size : 16px;
+}
+
+.modal-place-box {
+    display: flex;
+}
+
+.modal-place {
+    margin-left: 5px;
+}
+
+.modal-button-box {
+    text-align: center;
+}
+
+.modal-button {
+    border: none;
+    background-color: unset;
+    color: gray;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0 8px 15px 33px;
+}

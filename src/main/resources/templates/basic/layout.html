@@ -1,0 +1,14 @@
+<html mxlns:th="http://www.thymeleaaf.org">
+
+<head>
+    <title>어디갈래?</title>   
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link href="styles/common.css" rel="stylesheet">
+    <head th:replace="~{/basic/modal :: modalFragmentHead}"></head>
+    <head th:replace="~{${path} :: ${contentHead}}"></head>
+</head>
+<body>
+    <div th:replace="~{/basic/modal :: modalFragment}"></div>
+    <div th:replace="~{${path} :: ${content}}"></div>        
+</body>

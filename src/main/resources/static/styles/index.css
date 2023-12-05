@@ -1,0 +1,90 @@
+.index-top-container {
+    height : 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+}
+
+.index-top-title1 {
+    color:F92929
+}
+
+.index-top-title2 {
+    color:5ebb15
+}
+
+.index-top-title3 {
+    color:4477fb
+}
+
+.index-mid-container {
+    text-align: -webkit-center;
+}
+
+.index-mid-box {
+    height : 375px;
+    width: 283px;
+    border: 1px solid gray;
+    position : relative;
+    background-color : white;
+}
+
+.index-mid-form-regist {
+    display: none;
+}
+
+.index-mid-title {
+    font-size: 32px;
+    margin: 40px 0px;
+}
+
+.index-mid-input1 {
+    height: 48px;
+    width:181px;
+    margin-bottom: 25px;
+    border-color: f92929;
+}
+
+.index-mid-input2 {
+    height: 48px;
+    width:181px;
+    margin-bottom: 25px;
+    border-color: 5ebb15;
+}
+
+.index-input {
+    margin : 0 50px
+}
+
+.index-mid-button {
+    height: 48px;
+    width:181px;
+    margin-bottom: 30px;
+    color : white;
+    background-color : 4477fb;
+    font-size : 24px;
+    border: none;
+}
+
+.index-bot-container {
+    justify-content: center;
+    font-size: 20px;
+    margin: 20px;
+    color: gray;
+}
+
+.index-bot-button {
+    background-color: unset;
+    border: unset;
+    margin: 0 10px;
+    color: gray;
+}
+
+.index-regist-close {
+    position: absolute;
+    right: 4%;
+    top: 4%;
+    border: none;
+    background-color: unset;
+}

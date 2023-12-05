@@ -1,0 +1,44 @@
+<html lang="ko" mxlns:th="http://www.thymeleaaf.org">
+
+<head th:fragment="modalFragmentHead">
+    <link href="styles/modal.css" rel="stylesheet">
+</head>
+
+<body>
+    <div th:fragment="modalFragment">
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-line">
+                <div class="modal-content rounded-5">
+                    <div class="modal-star-box">
+                        <button class="modal-star">별</button>
+                    </div>
+                    <div class="modal-img-box">
+                        <div>이미지</div>
+                    </div>                    
+                    <div class="modal-content-box">
+                        <div class="modal-codename">종류</div>
+                        <div class="modal-title">[이름이] 길어질 경우를 테스트 해보고 있습니다 더욱더 길어져서 3줄이 될수도 있습니다</div>
+                        <div class="modal-place-box">
+                            <div class="modal-guname">(강남구)</div>
+                            <div class="modal-place">이름이 긴경우를 테스트</div>
+                        </div>
+                        <div class="modal-date">2000-00-00~3000-00-00</div>
+                        <br>
+                        <div class="modal-trgt">14세이상 관람</div>
+                        <div class="modal-fee">R석 88,000원 S석 77,000원 A석 66,000원  S석 77,000원 A석 66,000원</div>
+                    </div>
+                    <div class="modal-button-box">
+                        <button type="button" class="modal-button">위치</button>
+                        <button type="button" class="modal-button">홈페이지</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>

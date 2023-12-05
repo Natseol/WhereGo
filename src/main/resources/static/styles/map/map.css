@@ -1,0 +1,52 @@
+.map-img {
+    height: 500px;
+}
+
+.event-container {
+    display: flex;    
+    align-items: center;
+    flex-direction: column;
+
+    padding: 20px;
+    border: 1px solid black;
+}
+
+.event-box {
+    display: flex;
+    width: 328px;
+    height : 143px;
+    background-color: ff4141;
+    padding: 18px;
+    margin-bottom: 20px;
+}
+
+.event-img-box {
+    height: 112px;
+    min-width: 79px;
+    background-color: gray;
+}
+.event-content-box {
+    color: white;
+    font-size: 12px;
+    align-self: center;
+    padding-left: 10px;
+}
+
+.event-title-box {
+    display: flex;    
+}
+
+.event-title {
+    font-weight: bold;
+}
+
+.event-codename {
+    opacity: 0.5;
+    font-size: 11px;
+    min-width: 35px;
+    padding: 3px 0 0 5px;
+}
+
+.event-fee {
+    font-weight: bold;
+}
