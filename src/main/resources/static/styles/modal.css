@@ -1,10 +1,7 @@
-.modal-line {
-    --bs-modal-width: 315px;
-    justify-content: center;
-}
-
 .modal-content {
     padding: 10px;
+    width: 93%;
+    margin: auto;
 }
 
 .modal-star-box {

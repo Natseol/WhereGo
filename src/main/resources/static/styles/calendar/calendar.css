@@ -1,5 +1,5 @@
 .calendar-container {
-    /* margin-top: 90px; */
+    height: 360px;
 }
 
 .calendar-select {
@@ -14,7 +14,7 @@ a { color:#000000;text-decoration:none; }
 
 .scriptCalendar {
     text-align:center;
-    margin: auto;
+    margin: 5% auto;
     font-size: 13px;
  }
 
@@ -39,21 +39,23 @@ a { color:#000000;text-decoration:none; }
 }
 
 .event-container-cal {
-    display: flex;            
+    display: flex;
     flex-wrap: wrap;
-    height: 260px;
-    
-    padding: 20px;    
+    align-content: baseline;
+    /* min-height: 260px; */
+    padding: 20px;
     background-color: #55D462;
-    position: fixed;
-    bottom: 0;
+    max-width: 980;
+    min-height: 50%;
+    margin: 11% auto 0;
+    justify-content: space-around;
 }
 
 .event-box-cal {
     height: 94px;
     width: 67px;
     background-color: white;
-    margin: 8px 6px;
+    margin: 8px 10px;
 }
 
 .event-img-box-cal {
