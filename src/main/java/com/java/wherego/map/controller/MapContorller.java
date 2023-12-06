@@ -8,10 +8,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MapContorller {
 	
 	@GetMapping("/map")
-	public String mainPage(Model model) {
+	public String mapPage(Model model) {
 		model.addAttribute("path", "/map/map"); 
 		model.addAttribute("content", "mapFragment"); 
 		model.addAttribute("contentHead", "mapFragmentHead");
+				
+		return "basic/layout";
+	}
+	
+	@GetMapping("/calendar")
+	public String calendarPage(Model model) {
+		model.addAttribute("path", "/calendar/calendar"); 
+		model.addAttribute("content", "calendarFragment"); 
+		model.addAttribute("contentHead", "calendarFragmentHead");
 				
 		return "basic/layout";
 	}

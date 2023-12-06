@@ -1,5 +1,6 @@
 .map-img {
-    height: 500px;
+    height: 540px;
+    background-color:coral;
 }
 
 .event-container {
@@ -7,17 +8,23 @@
     align-items: center;
     flex-direction: column;
 
-    padding: 20px;
+    padding: 14px;
     border: 1px solid black;
+    margin-top: -22px;
+    height : 260px;
+    background-color: white;
+    position: fixed;
+    bottom: 0;
 }
 
 .event-box {
     display: flex;
     width: 328px;
     height : 143px;
-    background-color: ff4141;
+    background-color: #ff4141;
     padding: 18px;
     margin-bottom: 20px;
+    cursor: pointer;
 }
 
 .event-img-box {
@@ -38,13 +45,15 @@
 
 .event-title {
     font-weight: bold;
+    max-height: 36px;
+    overflow: hidden;
 }
 
 .event-codename {
     opacity: 0.5;
     font-size: 11px;
     min-width: 35px;
-    padding: 3px 0 0 5px;
+    padding: 3px 0 0 1px;
 }
 
 .event-fee {

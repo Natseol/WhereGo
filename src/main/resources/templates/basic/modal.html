@@ -1,29 +1,32 @@
 <html lang="ko" mxlns:th="http://www.thymeleaaf.org">
 
 <head th:fragment="modalFragmentHead">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    
     <link href="styles/modal.css" rel="stylesheet">
 </head>
 
 <body>
     <div th:fragment="modalFragment">
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Launch demo modal
-        </button>
+        </button> -->
 
         <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="commonModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered modal-line">
                 <div class="modal-content rounded-5">
                     <div class="modal-star-box">
-                        <button class="modal-star">별</button>
+                        <button class="modal-star"><img class="modal-star-img" src="images/icons8-star-96.png"></button>
                     </div>
                     <div class="modal-img-box">
                         <div>이미지</div>
                     </div>                    
                     <div class="modal-content-box">
                         <div class="modal-codename">종류</div>
-                        <div class="modal-title">[이름이] 길어질 경우를 테스트 해보고 있습니다 더욱더 길어져서 3줄이 될수도 있습니다</div>
+                        <div class="modal-title">[서서울예술교육센터] 2023 서울시민예술학교 피지컬씨어터 [몸짓으로 쓰는 이야기] (in 서서울예술교육센터, 구립영등포아트스퀘어)</div>
                         <div class="modal-place-box">
                             <div class="modal-guname">(강남구)</div>
                             <div class="modal-place">이름이 긴경우를 테스트</div>
@@ -40,5 +43,11 @@
                 </div>
             </div>
         </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+            crossorigin="anonymous"></script>
+        <script>
+            const commonModal = new bootstrap.Modal(document.getElementById('commonModal'))
+        </script>
     </div>
 </body>

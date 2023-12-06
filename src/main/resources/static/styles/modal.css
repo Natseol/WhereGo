@@ -12,10 +12,14 @@ text-align: right;
 }   
 
 .modal-star {
-    width: 30px;
+    width: 50px;
     border: 0px;
     background-color: unset;
-    margin: 10px 15px;
+    margin: 5px 5px 12px;
+}
+
+.modal-star-img {
+    width: 100%;    
 }
 
 .modal-img-box {
