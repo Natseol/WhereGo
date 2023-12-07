@@ -39,16 +39,17 @@ a { color:#000000;text-decoration:none; }
 }
 
 .event-container-cal {
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
     align-content: baseline;
-    /* min-height: 260px; */
     padding: 20px;
     background-color: #55D462;
     max-width: 980;
     min-height: 50%;
     margin: 11% auto 0;
     justify-content: space-around;
+    grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
+    gap: 13px;
 }
 
 .event-box-cal {
