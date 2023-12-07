@@ -26,7 +26,7 @@ public class BookmarkDaoImpl implements BookmarkDao {
 	};
 
 	public void add(Bookmark bookmark) {
-		jdbcTemplate.update("insert into bookmark (user_id, event_id) values (?,?)", mapper, bookmark.getUserId(),
+		jdbcTemplate.update("insert into bookmark (user_id, event_id) values (?,?)", bookmark.getUserId(),
 				bookmark.getEventId());
 	}
 

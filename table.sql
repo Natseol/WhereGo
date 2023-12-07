@@ -10,15 +10,15 @@ create table events (
     guname varchar(10) NOT NULL,
     title varchar(200) NOT NULL,
     date varchar(30) NOT NULL,
-    place varchar(20) NOT NULL,
+    place varchar(50) NOT NULL,
     org_name varchar(30),
-    use_trgt varchar(20),
+    use_trgt varchar(30),
     use_fee varchar(200),
     player varchar(20),
     program varchar(200),
-    ete_desc varchar(200),
-    org_link varchar(200),
-    main_img varchar(200),
+    etc_desc varchar(200),
+    org_link varchar(500),
+    main_img varchar(500),
     rgsdate varchar(20),
     ticket varchar(20),
     strdate varchar(50),
@@ -27,7 +27,7 @@ create table events (
     lot decimal(20,17),
     lat decimal(20,17),
     is_free varchar(20),
-    hmpg_addr varchar(200)
+    hmpg_addr varchar(500)
 );
 
 create table bookmark(

@@ -25,8 +25,8 @@ public class UserDaoImpl implements UserDao {
 	};
 	
 	public void add(User user) {
-		jdbcTemplate.update("insert into user (user_id, password) values (?, ?)",mapper,
-				user.getId(),user.getPassword());
+		jdbcTemplate.update("insert into users (user_id, password) values (?, ?)",
+				user.getUserId(),user.getPassword());
 	}
 	
 	public User get(String userId) {

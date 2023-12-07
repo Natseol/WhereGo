@@ -22,21 +22,38 @@ public class Event {
 	private String date;
 	@NonNull
 	private String place;
-	private String orgName="";
-	private String useTrgt="";
-	private String useFee="";
-	private String player="";
-	private String program="";
-	private String eteDesc="";
-	private String orgLink="";
-	private String mainImg="";
-	private String rgsdate="";
-	private String ticket="";
-	private String strdate="";
-	private String endDate="";
-	private String themecode="";
-	private double lot=0;
-	private double lat=0;
-	private String isFee="";
-	private String hmpgAddr="";
+	@NonNull
+	private String orgName;
+	@NonNull
+	private String useTrgt;
+	@NonNull
+	private String useFee;
+	@NonNull
+	private String player;
+	@NonNull
+	private String program;
+	@NonNull
+	private String etcDesc;
+	@NonNull
+	private String orgLink;
+	@NonNull
+	private String mainImg;
+	@NonNull
+	private String rgsdate;
+	@NonNull
+	private String ticket;
+	@NonNull
+	private String strdate;
+	@NonNull
+	private String endDate;
+	@NonNull
+	private String themecode;
+	@NonNull
+	private double lot;
+	@NonNull
+	private double lat;
+	@NonNull
+	private String isFree;
+	@NonNull
+	private String hmpgAddr;
 }
