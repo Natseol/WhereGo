@@ -15,8 +15,7 @@ public class UserController {
 	public String mainPage() {
 				
 		return "index";
-	}
-	
+	}	
 	
 	
 	@GetMapping("/a")

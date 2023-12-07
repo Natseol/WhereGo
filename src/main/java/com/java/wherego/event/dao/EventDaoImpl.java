@@ -1,0 +1,49 @@
+package com.java.wherego.event.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
+
+import com.java.wherego.event.domain.Event;
+import com.java.wherego.user.domain.User;
+
+@Repository
+public class EventDaoImpl implements EventDao {
+	@Autowired
+	private JdbcTemplate jdbcTemplate;
+
+	private RowMapper<Event> mapper = new RowMapper<Event>() {
+		@Override
+		public Event mapRow(ResultSet rs, int rowNum) throws SQLException {
+			return new Event(rs.getInt("id"), rs.getString("codename"), rs.getString("guname"), rs.getString("title"),
+					rs.getString("date"), rs.getString("place"), rs.getString("org_name"), rs.getString("use_trgt"),
+					rs.getString("use_fee"), rs.getString("player"), rs.getString("program"), rs.getString("ete_desc"),
+					rs.getString("org_link"), rs.getString("main_img"), rs.getString("rgsdate"), rs.getString("ticket"),
+					rs.getString("srdate"), rs.getString("end_date"), rs.getString("themecode"), rs.getDouble("lot"),
+					rs.getDouble("lat"), rs.getString("is_fee"), rs.getString("hmpg_addr"));
+		}
+	};
+
+	public void add(Event event) {
+		jdbcTemplate.update("insert into events (codename, guname, title, date, place, org_name, use_trgt, use_fee, player,"
+				+ "program, ete_desc, org_link, main_img, rgsdate, ticket, strdate, end_date, themecode, lot, lat, is_fee, hmpg_addr)"
+				+ "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)", mapper, event.getCodename(), event.getGuname(),
+				event.getTitle(), event.getDate(), event.getPlace(), event.getOrgName(), event.getUseTrgt(),
+				event.getUseFee(), event.getPlayer(), event.getProgram(), event.getEteDesc(), event.getMainImg(),
+				event.getRgsdate(), event.getTicket(), event.getStrdate(), event.getEndDate(), event.getThemecode(),
+				event.getLot(), event.getLat(), event.getIsFee(), event.getHmpgAddr());
+	}
+			
+	public Event getUsingId(int id) {
+		return jdbcTemplate.queryForObject("select * from events where id= ?", mapper, id);
+	}
+	
+	public List<Event> getUsingCodename(String codename) {
+		return jdbcTemplate.query("select * from events where codename= ?", mapper, codename);
+	}
+}

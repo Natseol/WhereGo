@@ -1,11 +1,11 @@
-package com.java.wherego.map.controller;
+package com.java.wherego.event.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class MapContorller {
+public class EventContorller {
 	
 	@GetMapping("/map")
 	public String mapPage(Model model) {
