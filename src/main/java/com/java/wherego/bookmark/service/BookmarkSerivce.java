@@ -1,5 +1,7 @@
 package com.java.wherego.bookmark.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +15,14 @@ public class BookmarkSerivce {
 	
 	public void add(Bookmark bookmark) {
 		bookmarkDao.add(bookmark);
+	}
+	
+	public void del(int id) {
+		bookmarkDao.del(id);
+	}
+	
+	public List<Bookmark> getAll(int userId) {
+		return bookmarkDao.getAll(userId);
 	}
 	
 }

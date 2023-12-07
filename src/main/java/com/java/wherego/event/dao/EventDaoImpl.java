@@ -38,11 +38,29 @@ public class EventDaoImpl implements EventDao {
 				event.getLot(), event.getLat(), event.getIsFree(), event.getHmpgAddr());
 	}
 			
-	public Event getUsingId(int id) {
+	public Event get(int id) {
 		return jdbcTemplate.queryForObject("select * from events where id= ?", mapper, id);
 	}
 	
 	public List<Event> getUsingCodename(String codename) {
 		return jdbcTemplate.query("select * from events where codename= ?", mapper, codename);
+	}
+	
+	public List<Event> getUsingCodenameAndDate(String codename, String date) {
+		return jdbcTemplate.query("select * from events where codename= ? and strdate<= ? and end_date>= ?", mapper, codename, date, date);
+	}
+	
+	public List<Event> getUsingDate(String date) {
+		return jdbcTemplate.query("select * from events where strdate<= ? and end_date>= ?", mapper, date, date);
+	}
+	
+	public List<Event> getUsingBearing(Double latN, Double latS, Double lotW, Double lotE) {
+		return jdbcTemplate.query("select * from events where lat<= ? and lat>= ? and lot>= ? and lot<= ?",
+				mapper, latN, latS, lotW, lotE);
+	}
+	
+	public List<Event> getUsingBearing(String date, Double latN, Double latS, Double lotW, Double lotE) {
+		return jdbcTemplate.query("select * from events where strdate<= ? and end_date>= ? and lat<= ? and lat>= ? and lot>= ? and lot<= ?",
+				mapper, date, latN, latS, lotW, lotE);
 	}
 }

@@ -29,6 +29,10 @@ public class BookmarkDaoImpl implements BookmarkDao {
 		jdbcTemplate.update("insert into bookmark (user_id, event_id) values (?,?)", bookmark.getUserId(),
 				bookmark.getEventId());
 	}
+	
+	public void del(int id) {
+		jdbcTemplate.update("delete from bookmark where id=?", id);
+	}
 
 	public List<Bookmark> getAll(int userId) {
 		return jdbcTemplate.query(
