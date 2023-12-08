@@ -25,19 +25,20 @@ public class EventService {
 		return eventDao.getUsingCodename(codename);
 	}
 	
-	public List<Event> getUsingCodenameAndDate(String codename, String date) {
-		return eventDao.getUsingCodenameAndDate(codename, date);
-	}
-	
-	public List<Event> getUsingDate(String date) {
+	private List<Event> getUsingDate(String date) {
 		return eventDao.getUsingDate(date);
 	}
 	
-	public List<Event> getUsingBearing(Double latN, Double latS, Double lotW, Double lotE) {
+	public List<Event> getUsingCodenameAndDate(String codename, String date) {
+		if (codename.equals("분류")) return getUsingDate(date);
+		return eventDao.getUsingCodenameAndDate(codename, date);
+	}	
+	
+	public List<Event> getUsingBearing(double latN, double latS, double lotW, double lotE) {
 		return eventDao.getUsingBearing(latN, latS, lotW, lotE);
 	}
 	
-	public List<Event> getUsingBearing(String date, Double latN, Double latS, Double lotW, Double lotE) {
-		return eventDao.getUsingBearing(date, latN, latS, lotW, lotE);
+	public List<Event> getUsingDateAndBearing(String date, double latN, double latS, double lotW, double lotE) {
+		return eventDao.getUsingDateAndBearing(date, latN, latS, lotW, lotE);
 	}
 }

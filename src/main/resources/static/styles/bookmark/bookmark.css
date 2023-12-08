@@ -12,6 +12,11 @@
     position:relative;
 }
 
+.event-star-button {
+    border: none;
+    background: unset;
+}
+
 .event-star {
     position: absolute;
     right: 2%;

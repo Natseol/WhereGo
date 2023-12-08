@@ -21,7 +21,17 @@ public class BookmarkDaoImpl implements BookmarkDao {
 		@Override
 		public Bookmark mapRow(ResultSet rs, int rowNum) throws SQLException {
 			// TODO Auto-generated method stub
-			return new Bookmark(rs.getInt("id"), rs.getInt("user_id"), rs.getInt("event_id"));
+			return new Bookmark(rs.getInt("id"),
+					rs.getInt("user_id"),
+					rs.getInt("event_id"),
+					rs.getString("title"),
+					rs.getString("codename"),
+					rs.getString("place"),
+					rs.getString("date"),
+					rs.getString("use_trgt"),
+					rs.getString("is_free"),
+					rs.getString("main_img")
+					);
 		}
 	};
 
@@ -36,7 +46,7 @@ public class BookmarkDaoImpl implements BookmarkDao {
 
 	public List<Bookmark> getAll(int userId) {
 		return jdbcTemplate.query(
-				"select a.*, e.title, e.codename, e.date, e.use_trgt, e.is_free from bookmark a "
+				"select a.*, e.title, e.codename, e.place, e.date, e.use_trgt, e.is_free, e.main_img from bookmark a "
 				+ "join events e on a.event_id = e.id where a.user_id= ?",
 				mapper, userId);
 	}

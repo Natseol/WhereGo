@@ -30,10 +30,10 @@ public class UserDaoImpl implements UserDao {
 	}
 	
 	public User get(String userId) {
-		return jdbcTemplate.queryForObject("select * from users where \"user_id\"=?", mapper, userId);
+		return jdbcTemplate.queryForObject("select * from users where user_id=?", mapper, userId);
 	}
 	
 	public User get(int id) {
-		return jdbcTemplate.queryForObject("select * from users where \"id\"=?", mapper, id);
+		return jdbcTemplate.queryForObject("select * from users where id=?", mapper, id);
 	}
 }

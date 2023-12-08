@@ -11,6 +11,6 @@ public interface EventDao {
 	public List<Event> getUsingCodename(String codename);
 	public List<Event> getUsingCodenameAndDate(String codename, String date);
 	public List<Event> getUsingDate(String date);
-	public List<Event> getUsingBearing(Double latN, Double latS, Double lotW, Double lotE);
-	public List<Event> getUsingBearing(String date, Double latN, Double latS, Double lotW, Double lotE);
+	public List<Event> getUsingBearing(double latN, double latS, double lotW, double lotE);
+	public List<Event> getUsingDateAndBearing(String date, double latN, double latS, double lotW, double lotE);
 }

@@ -18,5 +18,11 @@ public class Bookmark {
 	private int userId;
 	@NonNull
 	private int eventId;
-	
+	private String title;
+	private String codename;
+	private String place;
+	private String date;
+	private String useTrgt;
+	private String isFree;
+	private String mainImg;
 }

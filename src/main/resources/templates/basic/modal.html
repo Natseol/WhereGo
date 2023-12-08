@@ -13,26 +13,26 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content rounded-5">
                     <div class="modal-star-box">
-                        <button class="modal-star"><img class="modal-star-img" src="images/icons8-star-96.png"></button>
+                        <button class="modal-star" id="modal-star-button"><img class="modal-star-img" src="images/icons8-star-96.png"></button>
                     </div>
                     <div class="modal-img-box">
-                        <div>이미지</div>
+                        <img class="modal-img" id="modal-img"></img>
                     </div>                    
                     <div class="modal-content-box">
-                        <div class="modal-codename">종류</div>
-                        <div class="modal-title">[서서울예술교육센터] 2023 서울시민예술학교 피지컬씨어터 [몸짓으로 쓰는 이야기] (in 서서울예술교육센터, 구립영등포아트스퀘어)</div>
+                        <div class="modal-codename" id="modal-codename">종류</div>
+                        <div class="modal-title" id="modal-title">[서서울예술교육센터] 2023 서울시민예술학교 피지컬씨어터 [몸짓으로 쓰는 이야기] (in 서서울예술교육센터, 구립영등포아트스퀘어)</div>
                         <div class="modal-place-box">
-                            <div class="modal-guname">(강남구)</div>
-                            <div class="modal-place">이름이 긴경우를 테스트</div>
+                            <div class="modal-guname" id="modal-guname">(강남구)</div>
+                            <div class="modal-place" id="modal-place">이름이 긴경우를 테스트</div>
                         </div>
-                        <div class="modal-date">2000-00-00~3000-00-00</div>
+                        <div class="modal-date" id="modal-date">2000-00-00~3000-00-00</div>
                         <br>
-                        <div class="modal-trgt">14세이상 관람</div>
-                        <div class="modal-fee">R석 88,000원 S석 77,000원 A석 66,000원  S석 77,000원 A석 66,000원</div>
+                        <div class="modal-trgt" id="modal-trgt">14세이상 관람</div>
+                        <div class="modal-free" id="modal-free">R석 88,000원 S석 77,000원 A석 66,000원  S석 77,000원 A석 66,000원</div>
                     </div>
                     <div class="modal-button-box">
-                        <button type="button" class="modal-button">위치</button>
-                        <button type="button" class="modal-button">홈페이지</button>
+                        <button type="button" class="modal-button" id="modal-map-button">위치</button>
+                        <button type="button" class="modal-button" id="modal-link-button">홈페이지</button>
                     </div>
                 </div>
             </div>
@@ -40,8 +40,6 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"></script>
-        <script>
-            const commonModal = new bootstrap.Modal(document.getElementById('commonModal'))
-        </script>
+        <script src="scripts/modal.js"></script>    
     </div>
 </body>

@@ -26,6 +26,11 @@ text-align: right;
     align-self: center;
 }
 
+.modal-img {
+    height: 100%;
+    width: 100%;
+}
+
 .modal-content-box {
     padding: 25px 20px;
     font-size: 14px;

@@ -11,6 +11,10 @@
     <head th:replace="~{${path} :: ${contentHead}}"></head>
 </head>
 <body>
+    <script>
+        const userId = "[[${session.Id}]]";        
+    </script>
     <div th:replace="~{/basic/modal :: modalFragment}"></div>
-    <div th:replace="~{${path} :: ${content}}"></div>        
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <div th:replace="~{${path} :: ${content}}"></div>    
 </body>

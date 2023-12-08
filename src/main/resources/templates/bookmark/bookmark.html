@@ -6,7 +6,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link href="styles/common.css" rel="stylesheet">
-    <link href="styles/map/map.css" rel="stylesheet">       
+    <link href="styles/map/map.css" rel="stylesheet">
     <link href="styles/bookmark/bookmark.css" rel="stylesheet">
 </head>
 
@@ -15,80 +15,32 @@
         <div th:replace="~{/basic/navigation :: navFragment}"></div>
         <div class="nav-space"></div>
         <div class="event-container-book">
-            <div class="event-box rounded-4 shadow-style">
-                <div class="event-img-box"><img class="event-img">이미지</div>
+            <div class="event-box rounded-4 shadow-style" th:each="bookmark:${list}" th:object="${bookmark}">
+                <div class="event-img-box"><img class="event-img" th:src="*{mainImg}"></div>
                 <div class="event-content-box">
-                    <img class="event-star" src="images/icons8-star-48.png">
-                    <div class="event-title-box">
-                        <div class="event-title">[서서울예술교육센터] 2023 서울시민예술학교 피지컬씨어터 [몸짓으로 쓰는 이야기] (in 서서울예술교육센터, 구립영등포아트스퀘어)</div>
-                        <div class="event-codename">분류</div>
-                    </div>
-                    <div class="event-place">위치</div>
-                    <br>
-                    <div class="event-date">날짜</div>
-                    <div class="event-fee">요금</div>
-                </div>
-            </div>
-            <div class="event-box rounded-4 shadow-style">
-                <div class="event-img-box"><img class="event-img">이미지</div>
-                <div class="event-content-box">
-                    <img class="event-star" src="images/icons8-star-48.png">
-                    <div class="event-title-box">
-                        <div class="event-title">제목</div>
-                        <div class="event-codename">분류</div>
-                    </div>
-                    <div class="event-place">위치</div>
-                    <br>
-                    <div class="event-date">날짜</div>
-                    <div class="event-fee">요금</div>
-                </div>
-            </div>
-            <div class="event-box rounded-4 shadow-style">
-                <div class="event-img-box"><img class="event-img">이미지</div>
-                <div class="event-content-box">
-                    <img class="event-star" src="images/icons8-star-48.png">
-                    <div class="event-title-box">
-                        <div class="event-title">제목</div>
-                        <div class="event-codename">분류</div>
-                    </div>
-                    <div class="event-place">위치</div>
-                    <br>
-                    <div class="event-date">날짜</div>
-                    <div class="event-fee">요금</div>
-                </div>
-            </div>
-            <div class="event-box rounded-4 shadow-style">
-                <div class="event-img-box"><img class="event-img">이미지</div>
-                <div class="event-content-box">
-                    <img class="event-star" src="images/icons8-star-48.png">
-                    <div class="event-title-box">
-                        <div class="event-title">제목</div>
-                        <div class="event-codename">분류</div>
-                    </div>
-                    <div class="event-place">위치</div>
-                    <br>
-                    <div class="event-date">날짜</div>
-                    <div class="event-fee">요금</div>
-                </div>
-            </div>
-            <div class="event-box rounded-4 shadow-style">
-                <div class="event-img-box"><img class="event-img">이미지</div>
-                <div class="event-content-box">
-                    <img class="event-star" src="images/icons8-star-48.png">
-                    <div class="event-title-box">
-                        <div class="event-title">제목</div>
-                        <div class="event-codename">분류</div>
-                    </div>
-                    <div class="event-place">위치</div>
-                    <br>
-                    <div class="event-date">날짜</div>
-                    <div class="event-fee">요금</div>
+                    <form action="/bookmark/del" method="post">
+                        <button class="event-star-button"><img class="event-star"
+                                src="images/icons8-star-48.png"></button>
+                        <input type="hidden" name="event-id" th:value="*{id}">
+                        <div class="event-title-box">
+                            <div class="event-title">[[*{title}]]</div>
+                            <div class="event-codename">[[*{codename}]]</div>
+                        </div>
+                        <div class="event-place">[[*{place}]]</div>
+                        <br>
+                        <div class="event-date">[[*{date}]]</div>
+                        <div class="event-fee">[[*{isFree}]]</div>
+                    </form>
                 </div>
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"></script>
+        <script>
+            const bookmarks = "[[${list}]]";
+            console.log(bookmarks);            
+        </script>
         <script src="scripts/bookmark/bookmark.js"></script>
     </div>
 </body>

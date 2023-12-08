@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-var toDay = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 toDay에 Date 객체를 넣어줌
-var nowDate = new Date();  // @param 전역 변수, 실제 오늘날짜 고정값
+let toDay = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 toDay에 Date 객체를 넣어줌
+let nowDate = new Date();  // @param 전역 변수, 실제 오늘날짜 고정값
 
 /**
  * @brief   이전달 버튼 클릭시
@@ -187,10 +187,8 @@ function calendarChoiceDay(column) {
 
     // @param 선택일 클래스명 변경
     column.classList.add("choiceDay");
-
-    let selectedDay = document.getElementById("calYear").innerText + "-" + document.getElementById("calMonth").innerText
-        + "-" + document.getElementsByClassName("choiceDay")[0].innerText;
     
+    getEvents();
 }
 
 /**
@@ -204,4 +202,51 @@ function autoLeftPad(num, digit) {
         num = new Array(digit - String(num).length + 1).join("0") + num;
     }
     return num;
+}
+
+const getEvents = async () => {
+    let selectedDay;
+    if(document.getElementsByClassName("choiceDay")[0]==undefined) {
+        let today = new Date();   
+        let year = today.getFullYear(); // 년도
+        let month = today.getMonth() + 1;  // 월
+        let date = today.getDate();  // 날짜
+        selectedDay = year + '-' + month + '-' + date;
+    } else {
+        selectedDay = document.getElementById("calYear").innerText + "-" + document.getElementById("calMonth").innerText
+        + "-" + document.getElementsByClassName("choiceDay")[0].innerText;
+    }
+    const list = (await axios({
+        method: 'post',
+        url: '/calendar',
+        data: {
+            codename:document.getElementById("codename").value,
+            date:selectedDay
+        }
+    })).data;
+    console.log(list);
+
+    const eventContainerCal = document.querySelector('.event-container-cal');
+    eventContainerCal.innerHTML="";        
+    list.forEach(item => {
+        eventContainerCal.appendChild(createEventBoxCal(item));
+    })
+};
+
+getEvents();
+
+function createEventBoxCal(item) {    
+    let eventBoxCal = document.createElement('div');
+    eventBoxCal.className = 'event-box-cal rounded-4 shadow-style';
+    eventBoxCal.onclick = function() {modalShow(item)};
+    
+    let imgBoxCal = document.createElement('div');
+    imgBoxCal.className = 'event-img-box-cal';
+    let imgCal = document.createElement('img');
+    imgCal.className = 'event-img';
+    imgCal.src = item.mainImg;
+    imgBoxCal.appendChild(imgCal);
+    eventBoxCal.appendChild(imgBoxCal);
+
+    return eventBoxCal;
 }

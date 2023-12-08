@@ -27,7 +27,7 @@ public class Event {
 	@NonNull
 	private String useTrgt;
 	@NonNull
-	private String useFee;
+	private String useFree;
 	@NonNull
 	private String player;
 	@NonNull
