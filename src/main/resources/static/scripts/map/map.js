@@ -15,6 +15,17 @@ var infoWindow = new naver.maps.InfoWindow({
 });
 
 let date = new URL(location.href).searchParams.get("date");
+let now = new Date();
+let today = now.getFullYear() +"-"+ (now.getMonth()+1) +"-"+ now.getDate();
+
+var bounds = map.getBounds(),
+    southWest = bounds.getSW(),
+    northEast = bounds.getNE(),
+    lngSpan = northEast.lng() - southWest.lng(),
+    latSpan = northEast.lat() - southWest.lat();
+
+var markers = [],
+    infoWindows = [];
 
 const getEvents = async () => {
     const list = (await axios({
@@ -31,23 +42,20 @@ const getEvents = async () => {
 
     const eventContainer = document.getElementById("event-container");
     eventContainer.innerHTML = "";
+
+    markers.forEach(marker=>{
+        marker.onRemove();
+    })
     markers=[];
     infoWindows=[];
     list.forEach(item => {
-        eventContainer.appendChild(createEventBox(item));
+        if (date==null) {date=today}
+        eventContainer.appendChild(createEventBox(item, date));
         markers.push(marker(item));
         infoWindows.push(info(item.title));
     })
+    
 };
-
-var bounds = map.getBounds(),
-    southWest = bounds.getSW(),
-    northEast = bounds.getNE(),
-    lngSpan = northEast.lng() - southWest.lng(),
-    latSpan = northEast.lat() - southWest.lat();
-
-var markers = [],
-    infoWindows = [];
 
 function info(text) {
     var infoWindow = new naver.maps.InfoWindow({
@@ -57,7 +65,8 @@ function info(text) {
 }
 
 for (var i = 0, ii = markers.length; i < ii; i++) {
-    naver.maps.Event.addListener(markers[i], 'click', getClickHandler[i]);
+    console.log(i);
+    naver.maps.Event.addListener(markers[i], 'click', getClickHandler(i));
 }
 
 // 해당 마커의 인덱스를 seq라는 클로저 변수로 저장하는 이벤트 핸들러를 반환합니다.
@@ -73,12 +82,41 @@ function getClickHandler(seq) {
     }
 }
 
+function checkIcon(item) {    
+    if (item.codename=="문화교양/강좌") return "/images/문화.png";
+    if (item.codename=="전시/미술") return "/images/전시.png";
+    if (item.codename=="뮤지컬/오페라") return "/images/뮤지컬.png";
+    if (item.codename=="연극") return "/images/연극.png";
+    if (item.codename=="무용") return "/images/무용.png";
+    if (item.codename=="영화") return "/images/영화.png";
+    if (item.codename=="국악") return "/images/국악.png";
+    if (item.codename=="콘서트") return "/images/콘서트.png";
+    if (item.codename=="클래식") return "/images/클래식.png"
+    if (item.codename=="독주/독창회") return "/images/독주.png";
+    if (item.codename=="축제-시민화합") return "/images/축제-시민화합.png";
+    if (item.codename=="축제-자연/경관") return "/images/축제-자연.png";
+    if (item.codename=="축제-전통/역자") return "/images/축제-전통.png";
+    if (item.codename=="축제-문화/예술") return "/images/축제-문화.png";
+    if (item.codename=="축제-기타") return "/images/축제-기타.png";
+    if (item.codename=="기타") return "/images/기타.png";    
+    return "/images/기타.png";
+}
+
 function marker(item) {
-    let marker1 = new naver.maps.Marker({
+    let marker = new naver.maps.Marker({
         position: new naver.maps.LatLng(item.lot, item.lat),
-        map: map
+        map: map,
+        title: item.title,
+        draggable: true,
+        icon: {
+            url: checkIcon(item),
+            size: new naver.maps.Size(100, 100),
+            scaledSize: new naver.maps.Size(50, 50),
+            origin: new naver.maps.Point(0, 0),
+            anchor: new naver.maps.Point(50, 50)
+        }
     })
-    return marker1;
+    return marker;
 };
 
 naver.maps.Event.addListener(map, 'idle', function() {
@@ -116,10 +154,10 @@ function hideMarker(map, marker) {
 }
 
 
-function createEventBox(item) {
+function createEventBox(item, date) {
     let eventBox = document.createElement('div');
     eventBox.className = 'event-box rounded-4 shadow-style';
-    eventBox.onclick = function () { modalShow(item) };
+    eventBox.onclick = function () { modalShow(item, date) };
 
     let imgBox = document.createElement('div');
     imgBox.className = 'event-img-box';

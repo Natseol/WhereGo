@@ -21,7 +21,7 @@ text-align: right;
 
 .modal-img-box {
     height : 282px;
-    width: 218px;
+    max-width: 350px;
     background-color: gray;
     align-self: center;
 }

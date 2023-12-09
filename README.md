@@ -10,3 +10,6 @@
 	
 ### Flex 정렬
 	Grid로 변경 후 해결
+	
+### 415 에러
+	RequestParam과 RequestBody를 구분해서 해결
