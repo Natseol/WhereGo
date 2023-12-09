@@ -1,4 +1,4 @@
-<html mxlns:th="http://www.thymeleaaf.org">
+<html lang="ko" mxlns:th="http://www.thymeleaaf.org">
 
 <head th:fragment="bookmarkFragmentHead">
 
@@ -21,6 +21,7 @@
                     <form action="/bookmark/del" method="post">
                         <button class="event-star-button"><img class="event-star"
                                 src="images/icons8-star-48.png"></button>
+                        <input type="hidden" th:value="*{eventId}">
                         <input type="hidden" name="event-id" th:value="*{id}">
                         <div class="event-title-box">
                             <div class="event-title">[[*{title}]]</div>
@@ -38,8 +39,7 @@
             integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
             crossorigin="anonymous"></script>
         <script>
-            const bookmarks = "[[${list}]]";
-            console.log(bookmarks);            
+            const bookmarks = "[[${list}]]";            
         </script>
         <script src="scripts/bookmark/bookmark.js"></script>
     </div>

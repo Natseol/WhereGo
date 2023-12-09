@@ -14,10 +14,7 @@ var infoWindow = new naver.maps.InfoWindow({
     content: '<div style="width:150px;text-align:center;padding:10px;">The Letter is <b>"g"</b>.</div>'
 });
 
-let latN = map.getBounds()._max.y;
-let latS = map.getBounds()._min.y;
-let lotW = map.getBounds()._min.x;
-let lotE = map.getBounds()._max.x;
+let date = new URL(location.href).searchParams.get("date");
 
 const getEvents = async () => {
     const list = (await axios({
@@ -27,30 +24,102 @@ const getEvents = async () => {
             latN: map.getBounds()._max.y,
             latS: map.getBounds()._min.y,
             lotW: map.getBounds()._min.x,
-            lotE: map.getBounds()._max.x
+            lotE: map.getBounds()._max.x,
+            date: date
         }
     })).data;
-    console.log(list);
 
     const eventContainer = document.getElementById("event-container");
     eventContainer.innerHTML = "";
+    markers=[];
+    infoWindows=[];
     list.forEach(item => {
         eventContainer.appendChild(createEventBox(item));
-        marker(item);
+        markers.push(marker(item));
+        infoWindows.push(info(item.title));
     })
 };
 
+var bounds = map.getBounds(),
+    southWest = bounds.getSW(),
+    northEast = bounds.getNE(),
+    lngSpan = northEast.lng() - southWest.lng(),
+    latSpan = northEast.lat() - southWest.lat();
+
+var markers = [],
+    infoWindows = [];
+
+function info(text) {
+    var infoWindow = new naver.maps.InfoWindow({
+        content: text
+    });
+    return infoWindow;
+}
+
+for (var i = 0, ii = markers.length; i < ii; i++) {
+    naver.maps.Event.addListener(markers[i], 'click', getClickHandler[i]);
+}
+
+// 해당 마커의 인덱스를 seq라는 클로저 변수로 저장하는 이벤트 핸들러를 반환합니다.
+function getClickHandler(seq) {
+    return function (e) {
+        var marker2 = markers[seq],
+        infoWindow2 = infoWindows[seq];
+        if (infoWindow2.getMap()) {
+            infoWindow2.close();
+        } else {
+            infoWindow2.open(map, marker2);
+        }
+    }
+}
+
 function marker(item) {
-    new naver.maps.Marker({
-    position: new naver.maps.LatLng(item.lot, item.lat),
-    map: map
-})
+    let marker1 = new naver.maps.Marker({
+        position: new naver.maps.LatLng(item.lot, item.lat),
+        map: map
+    })
+    return marker1;
 };
 
-function createEventBox(item) {    
+naver.maps.Event.addListener(map, 'idle', function() {
+    updateMarkers(map, markers);
+});
+
+function updateMarkers(map, markers) {
+
+    var mapBounds = map.getBounds();
+    var marker, position;
+
+    for (var i = 0; i < markers.length; i++) {
+
+        marker = markers[i]
+        position = marker.getPosition();
+
+        if (mapBounds.hasLatLng(position)) {
+            showMarker(map, marker);
+        } else {
+            hideMarker(map, marker);
+        }
+    }
+}
+
+function showMarker(map, marker) {
+
+    if (marker.getMap()) return;
+    marker.setMap(map);
+}
+
+function hideMarker(map, marker) {
+
+    if (!marker.getMap()) return;
+    marker.setMap(null);
+}
+
+
+function createEventBox(item) {
     let eventBox = document.createElement('div');
     eventBox.className = 'event-box rounded-4 shadow-style';
-    eventBox.onclick = function() {modalShow(item)};
+    eventBox.onclick = function () { modalShow(item) };
 
     let imgBox = document.createElement('div');
     imgBox.className = 'event-img-box';

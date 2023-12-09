@@ -7,9 +7,11 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.java.wherego.bookmark.domain.Bookmark;
@@ -28,11 +30,12 @@ public class BookmarkController {
 		model.addAttribute("path", "/bookmark/bookmark"); 
 		model.addAttribute("content", "bookmarkFragment"); 
 		model.addAttribute("contentHead", "bookmarkFragmentHead");
-		int id = (int) session.getAttribute("Id");
 		
-		List<Bookmark> list = bookmarkService.getAll(id);
-		model.addAttribute("list", list);
-				
+		if (session.getAttribute("Id")!=null) {
+			int id = (int) session.getAttribute("Id");		
+			List<Bookmark> list = bookmarkService.getAll(id);
+			model.addAttribute("list", list);
+		}
 		return "basic/layout";
 	}
 	
@@ -42,28 +45,23 @@ public class BookmarkController {
 		try {
 			int userId = Integer.parseInt(data.get("userId"));
 			int eventId = Integer.parseInt(data.get("eventId"));		
-			bookmarkService.add(new Bookmark(userId, eventId));			
-			return "즐겨찾기 추가됨";
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();			
-			return "실패";
+			bookmarkService.add(new Bookmark(userId, eventId));
+			return "add";
+		} catch (Exception e) {
+			// TODO Auto-generated catch block					
+			return "failed";
 		}		
 	}
-	
-	@ResponseBody
-	@PostMapping(value="/bookmark/del", consumes = "application/x-www-form-urlencoded")
-	public String delBookmark(@RequestBody Map<String, String> data, Model model) throws SQLException {	
-		System.out.println(data.get("event-id"));
-//		try {
-//			int eventId = Integer.parseInt(data.get("event-id"));		
-//			bookmarkService.del(eventId);			
-//			return "즐겨찾기 삭제됨";
-//		} catch (NumberFormatException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();			
-//			return "실패";
-//		}
-		return null;
+		
+	@PostMapping("/bookmark/del")
+	public String delBookmark(@RequestParam Map<String, String> data, Model model) throws SQLException {	
+		try {
+			int eventId = Integer.parseInt(data.get("event-id"));		
+			bookmarkService.del(eventId);		
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();		
+		}
+		return "redirect:/bookmark";
 	}
 }

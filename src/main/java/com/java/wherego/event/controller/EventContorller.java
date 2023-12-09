@@ -36,12 +36,14 @@ public class EventContorller {
 	@ResponseBody
 	@PostMapping("/map")
 	public List<Event> eventsList(@RequestBody Map<String, String> data, Model model) {
+		
 		double latN = Double.parseDouble(data.get("latN"));
 		double latS = Double.parseDouble(data.get("latS"));
 		double lotW = Double.parseDouble(data.get("lotW"));
 		double lotE = Double.parseDouble(data.get("lotE"));
+		String date = data.get("date");
 		
-		return eventService.getUsingDateAndBearing("2023-12-09", latN, latS, lotW, lotE);
+		return eventService.getUsingDateAndBearing(date, latN, latS, lotW, lotE);
 	}
 	
 	@GetMapping("/calendar")
@@ -60,5 +62,12 @@ public class EventContorller {
 		String date = data.get("date");
 
 		return eventService.getUsingCodenameAndDate(codename, date);
+	}
+	
+	@ResponseBody
+	@PostMapping("/event")
+	public Event getEvent(@RequestBody Map<String, String> data) {
+		int id = Integer.parseInt(data.get("eventId"));
+		return eventService.get(id);
 	}
 }

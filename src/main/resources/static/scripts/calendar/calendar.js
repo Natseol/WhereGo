@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-let toDay = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 toDay에 Date 객체를 넣어줌
-let nowDate = new Date();  // @param 전역 변수, 실제 오늘날짜 고정값
+var toDay = new Date(); // @param 전역 변수, 오늘 날짜 / 내 컴퓨터 로컬을 기준으로 toDay에 Date 객체를 넣어줌
+var nowDate = new Date();  // @param 전역 변수, 실제 오늘날짜 고정값
 
 /**
  * @brief   이전달 버튼 클릭시
@@ -229,16 +229,16 @@ const getEvents = async () => {
     const eventContainerCal = document.querySelector('.event-container-cal');
     eventContainerCal.innerHTML="";        
     list.forEach(item => {
-        eventContainerCal.appendChild(createEventBoxCal(item));
+        eventContainerCal.appendChild(createEventBoxCal(item, selectedDay));
     })
 };
 
 getEvents();
 
-function createEventBoxCal(item) {    
+function createEventBoxCal(item, date) {    
     let eventBoxCal = document.createElement('div');
     eventBoxCal.className = 'event-box-cal rounded-4 shadow-style';
-    eventBoxCal.onclick = function() {modalShow(item)};
+    eventBoxCal.onclick = function() {modalShow(item, date)};
     
     let imgBoxCal = document.createElement('div');
     imgBoxCal.className = 'event-img-box-cal';

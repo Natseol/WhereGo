@@ -1,5 +1,6 @@
 package com.java.wherego.event.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,9 @@ public class EventService {
 	}
 	
 	public List<Event> getUsingDateAndBearing(String date, double latN, double latS, double lotW, double lotE) {
+		if (date==null) {
+			return eventDao.getUsingDateAndBearing(LocalDate.now().toString(), latN, latS, lotW, lotE);
+		}
 		return eventDao.getUsingDateAndBearing(date, latN, latS, lotW, lotE);
 	}
 }
