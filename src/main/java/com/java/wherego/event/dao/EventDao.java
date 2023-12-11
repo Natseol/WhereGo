@@ -7,6 +7,7 @@ import com.java.wherego.event.domain.Event;
 
 public interface EventDao {
 	public void add(Event event);
+	public int getCount();
 	public Event get(int id);
 	public Event getLastEvent();
 	public List<Event> getUsingCodename(String codename);

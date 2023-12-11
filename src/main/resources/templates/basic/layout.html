@@ -12,7 +12,8 @@
 </head>
 <body>
     <script>
-        const userId = "[[${session.Id}]]";        
+        const userNick = "[[${session.userId}]]";
+        const userId = "[[${session.Id}]]";
     </script>
     <div th:replace="~{/basic/modal :: modalFragment}"></div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>

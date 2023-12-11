@@ -58,17 +58,11 @@ class WheregoApplicationTests {
 	@Test
 	void test() throws IOException {
 		String DBday = esfl.getLastEvent().getRgsdate();
-		List<Event> list = esfl.newList(1, 300, DBday);
-		System.out.println(list.size());
-//		String APIday = list.get(list.size()-1).getRgsdate();
-//		if(DBday.equals(APIday)) {
-//			System.out.println("같음");
-//		} else {
-//			System.out.println("다름");
-//		}
-		
-//		for (Event event : list) {
-//			System.out.println(event.getTitle()+" "+event.getRgsdate());
-//		}
+		List<Event> list = esfl.newList(1, 350, DBday);
+		if (list.size() > 0) {
+			for (Event event : list) {
+				eventService.add(event);
+			}
+		}		
 	}
 }

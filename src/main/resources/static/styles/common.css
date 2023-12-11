@@ -13,7 +13,7 @@ body {
 }
 
 .shadow-style {
-    box-shadow: 0 4px 4px 0 gray;
+    box-shadow: 4px 4px 5px 0 #3d3d3d;
 }
 
 .font24-style {

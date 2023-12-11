@@ -15,6 +15,10 @@ public class EventService {
 	@Autowired
 	EventDao eventDao;
 	
+	public int getCount() {
+		return eventDao.getCount();
+	}
+	
 	public void add(Event event) {
 		eventDao.add(event);
 	}

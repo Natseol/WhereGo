@@ -37,6 +37,10 @@ public class EventDaoImpl implements EventDao {
 				event.getRgsdate(), event.getTicket(), event.getStrdate(), event.getEndDate(), event.getThemecode(),
 				event.getLot(), event.getLat(), event.getIsFree(), event.getHmpgAddr());
 	}
+	
+	public int getCount() {
+		return jdbcTemplate.queryForObject("select count(*) from events", Integer.class);
+	}
 			
 	public Event get(int id) {
 		return jdbcTemplate.queryForObject("select * from events where id= ?", mapper, id);

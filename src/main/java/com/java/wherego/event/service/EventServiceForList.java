@@ -69,7 +69,7 @@ public class EventServiceForList {
 		}
 		rd.close();
 		conn.disconnect();
-		System.out.println(sb.toString());
+//		System.out.println(sb.toString());
 
 		ObjectMapper mapper = new ObjectMapper();
 		JsonNode rootnode = mapper.readTree(sb.toString());

@@ -1,0 +1,9 @@
+.admin-input-box {
+    display: flex;
+    margin: 5px;
+    justify-content: center;
+}
+.admin-input {
+    width: 100px;    
+    text-align: center;
+}

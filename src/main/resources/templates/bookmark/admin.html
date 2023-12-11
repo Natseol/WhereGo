@@ -1,0 +1,24 @@
+<html lang="ko" mxlns:th="http://www.thymeleaaf.org">
+
+<head th:fragment="adminFragmentHead">
+    <link href="styles/bookmark/admin.css" rel="stylesheet">
+</head>
+
+<body>
+    <div th:fragment="adminFragment">
+        <div class="admin-box" id="admin-box">
+            <form action="/addlist" method="post" id="admin-form">
+                <div>*초기데이터 생성(범위는 최대 300개 까지만)*</div>
+                <div >현재 데이터 갯수: <span id="admin-count"></span>개</div>
+                <div class="admin-input-box">
+                    <input class="form-control admin-input" placeholder="시작" name="start">
+                    <input class="form-control admin-input" placeholder="끝" name="end">
+                </div>
+                <button class="btn btn-outline-dark">데이터 생성</button>
+            </form>
+            <div id="admin-msg"></div>
+            <button class="admin-button btn btn-outline-dark" id="admin-button">업데이트</button>
+        </div>
+        <script src="scripts/bookmark/admin.js"></script>
+    </div>
+</body>

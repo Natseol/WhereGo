@@ -111,7 +111,7 @@ function marker(item, index) {
             size: new naver.maps.Size(100, 100),
             scaledSize: new naver.maps.Size(50, 50),
             origin: new naver.maps.Point(0, 0),
-            anchor: new naver.maps.Point(50, 50)
+            anchor: new naver.maps.Point(25, 0)
         }
     })    
     return marker;
@@ -198,6 +198,11 @@ function createEventBox(item, date) {
     contentBox.appendChild(eventFee);
 
     eventBox.appendChild(contentBox);
+
+    let eventIcon = document.createElement('img');
+    eventIcon.className = 'event-icon';
+    eventIcon.src = checkIcon(item);
+    eventBox.appendChild(eventIcon);
 
     return eventBox;
 }

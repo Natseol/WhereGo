@@ -224,8 +224,6 @@ const getEvents = async () => {
             date:selectedDay
         }
     })).data;
-    console.log(list);
-
     const eventContainerCal = document.querySelector('.event-container-cal');
     eventContainerCal.innerHTML="";        
     list.forEach(item => {
