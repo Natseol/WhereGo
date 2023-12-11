@@ -42,6 +42,10 @@ public class EventDaoImpl implements EventDao {
 		return jdbcTemplate.queryForObject("select * from events where id= ?", mapper, id);
 	}
 	
+	public Event getLastEvent() {
+		return jdbcTemplate.queryForObject("select * FROM wherego.events order by rgsdate desc limit 1", mapper);
+	}
+	
 	public List<Event> getUsingCodename(String codename) {
 		return jdbcTemplate.query("select * from events where codename= ?", mapper, codename);
 	}

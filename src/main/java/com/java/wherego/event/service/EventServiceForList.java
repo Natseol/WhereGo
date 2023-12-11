@@ -9,6 +9,7 @@ import java.net.URLEncoder;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,6 +25,10 @@ import com.java.wherego.event.domain.Event;
 public class EventServiceForList {
 	@Autowired
 	EventDao eventDao;
+	
+	public Event getLastEvent() {
+		return eventDao.getLastEvent();
+	}
 	
 	public List<Event> newList(int start, int end, String day) throws IOException {
 		StringBuilder urlBuilder = new StringBuilder("http://openapi.seoul.go.kr:8088"); /* URL */
@@ -100,9 +105,10 @@ public class EventServiceForList {
 				
 		LocalDate specificDate = LocalDate.parse(day, DateTimeFormatter.ISO_DATE);
 		
-		List<Event> newList = list.stream().
-		filter(event -> isAfter(event.getRgsdate(),specificDate))
-		.collect(Collectors.toList());
+        List<Event> newList = list.stream()
+                .filter(event -> isAfter(event.getRgsdate(), specificDate))
+                .sorted(Comparator.comparing(Event::getRgsdate))
+                .collect(Collectors.toList());
 		
 		return newList;
 	}
