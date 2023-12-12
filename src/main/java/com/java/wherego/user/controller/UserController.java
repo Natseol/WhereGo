@@ -19,11 +19,10 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	
 	@GetMapping("/")
 	public String mainPage() {
 				
-		return "index";
+		return "/index";
 	}
 	
 	@PostMapping("/login")
