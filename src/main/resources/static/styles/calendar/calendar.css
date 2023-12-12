@@ -1,5 +1,5 @@
 .calendar-container {
-    height: 360px;
+    height: 400px;
 }
 
 .calendar-select {
@@ -8,6 +8,15 @@
     padding-left: 14px;
     font-weight: bold;
     height: 28px;
+}
+
+.calendar-box {
+    width: 360px;
+    background-color: white;
+    height: 400px;
+    display: flex;
+    margin: 5% auto;
+    box-shadow: 4px 4px 15px 0px dimgray;
 }
 
 a { color:#000000;text-decoration:none; }
@@ -46,7 +55,7 @@ a { color:#000000;text-decoration:none; }
     background-color: #55D462;
     max-width: 980;
     min-height: 50%;
-    margin: 11% auto 0;
+    margin: 8% auto 0;
     justify-content: space-around;
     grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
     gap: 13px;

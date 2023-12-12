@@ -14,52 +14,54 @@
         <div th:replace="~{/basic/navigation :: navFragment}"></div>
         <div class="nav-space"></div>
         <div class="calendar-container">
-            <table class="scriptCalendar">
-                <thead>
-                    <tr>
-                        <td colspan="3">
-                            <select class="form-select form-select-sm calendar-select rounded-4" id="codename">
-                                <option selected>분류</option>
-                                <option>문화교양/강좌</option>
-                                <option>전시/미술</option>
-                                <option>뮤지컬/오페라</option>
-                                <option>연극</option>
-                                <option>무용</option>
-                                <option>영화</option>
-                                <option>국악</option>
-                                <option>콘서트</option>
-                                <option>클래식</option>
-                                <option>독주/독창회</option>
-                                <option>축제-시민화합</option>
-                                <option>축제-자연/경관</option>
-                                <option>축제-전통/역사</option>
-                                <option>축제-문화/예술</option>
-                                <option>축제-기타</option>
-                                <option>기타</option>
-                            </select>
-                        </td>
-                        <td class="calendarBtn" id="btnPrevCalendar">&#60;</td>
-                        <td colspan="2">
-                            <span id="calYear">YYYY</span>년
-                            <span id="calMonth">MM</span>월
-                        </td>
-                        <td class="calendarBtn" id="nextNextCalendar">&#62;</td>
-                    </tr>
-                    <tr>
-                        <td style="color:ff4d4d">일</td>
-                        <td>월</td>
-                        <td>화</td>
-                        <td>수</td>
-                        <td>목</td>
-                        <td>금</td>
-                        <td style="color:4d4dff">토</td>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
+            <div class="calendar-box rounded-4">
+                <table class="scriptCalendar">
+                    <thead>
+                        <tr>
+                            <td colspan="3">
+                                <select class="form-select form-select-sm calendar-select rounded-4" id="codename">
+                                    <option selected>분류</option>
+                                    <option>문화교양/강좌</option>
+                                    <option>전시/미술</option>
+                                    <option>뮤지컬/오페라</option>
+                                    <option>연극</option>
+                                    <option>무용</option>
+                                    <option>영화</option>
+                                    <option>국악</option>
+                                    <option>콘서트</option>
+                                    <option>클래식</option>
+                                    <option>독주/독창회</option>
+                                    <option>축제-시민화합</option>
+                                    <option>축제-자연/경관</option>
+                                    <option>축제-전통/역사</option>
+                                    <option>축제-문화/예술</option>
+                                    <option>축제-기타</option>
+                                    <option>기타</option>
+                                </select>
+                            </td>
+                            <td class="calendarBtn" id="btnPrevCalendar">&#60;</td>
+                            <td colspan="2">
+                                <span id="calYear">YYYY</span>년
+                                <span id="calMonth">MM</span>월
+                            </td>
+                            <td class="calendarBtn" id="nextNextCalendar">&#62;</td>
+                        </tr>
+                        <tr>
+                            <td style="color:ff4d4d">일</td>
+                            <td>월</td>
+                            <td>화</td>
+                            <td>수</td>
+                            <td>목</td>
+                            <td>금</td>
+                            <td style="color:4d4dff">토</td>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
         </div>
-        <div class="event-container-cal rounded-top-4">            
-            
+        <div class="event-container-cal rounded-top-4">
+
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
