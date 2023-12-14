@@ -7,7 +7,6 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
 public class Event {
@@ -48,10 +47,8 @@ public class Event {
 	private String endDate;
 	@NonNull
 	private String themecode;
-	@NonNull
-	private double lot;
-	@NonNull
-	private double lat;
+	private final double lot;
+	private final double lat;
 	@NonNull
 	private String isFree;
 	@NonNull
