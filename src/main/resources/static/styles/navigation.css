@@ -7,14 +7,16 @@
     padding: 7px;
     z-index: 1;
     background-color: white;
-    width: 235px;
+    min-width: 15rem;
 }
 
 .navigation-box {
     display: flex;
+    justify-content: center;
 }
 
 .navigation-button {
     border: none;
     background-color: unset;
+    color : black
 }

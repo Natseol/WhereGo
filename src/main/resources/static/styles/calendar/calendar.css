@@ -7,7 +7,8 @@
     margin: auto;
     padding-left: 14px;
     font-weight: bold;
-    height: 28px;
+    font-size: small;
+    min-height: 28px;
 }
 
 .calendar-box {
@@ -15,7 +16,7 @@
     background-color: white;
     height: 400px;
     display: flex;
-    margin: 5% auto;
+    margin: 4% auto;
     box-shadow: 4px 4px 15px 0px dimgray;
 }
 
@@ -33,6 +34,7 @@ a { color:#000000;text-decoration:none; }
 
 .scriptCalendar > thead > tr:first-child > td {
     font-weight:bold;
+    font-size: small;
 }
 
 .scriptCalendar > thead > tr:last-child > td {
@@ -52,10 +54,10 @@ a { color:#000000;text-decoration:none; }
     flex-wrap: wrap;
     align-content: baseline;
     padding: 20px;
-    background-color: #55D462;
+    background-color: #004e08;
     max-width: 980;
     min-height: 50%;
-    margin: 8% auto 0;
+    margin: 6% auto 0;
     justify-content: space-around;
     grid-template-columns: repeat(auto-fill, minmax(74px, 1fr));
     gap: 13px;

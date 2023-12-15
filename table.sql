@@ -4,7 +4,7 @@ grant all privileges on wherego.* to wherego;
 
 create table users (
     id int auto_increment primary key,
-    user_id varchar(40) NOT NULL,
+    user_id varchar(40) unique NOT NULL,
     password varchar(64) NOT NULL
 );
 

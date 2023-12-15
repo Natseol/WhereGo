@@ -30,7 +30,7 @@
 .event-box {
     display: flex;
     height: 143px;
-    background-color: #4f0909;
+    background-color: #410000;
     padding: 18px 15px 18px 18px;
     margin: 2% 2%;
     cursor: pointer;
@@ -63,7 +63,7 @@
 
 .event-title {
     font-weight: bold;
-    max-height: 36px;
+    max-height: 2.3rem;
     overflow: hidden;
 }
 
@@ -73,6 +73,10 @@
     min-width: 64px;
     padding: 1px 0 0 1px;
     text-align: right;
+}
+
+.event-date {
+    margin-top: 0.4rem;
 }
 
 .event-free {

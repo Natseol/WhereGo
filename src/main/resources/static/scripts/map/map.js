@@ -105,10 +105,10 @@ function marker(item, index) {
         position: new naver.maps.LatLng(item.lot, item.lat),
         map: map,
         title: item.title,
-        draggable: true,
+        // draggable: true,
         icon: {
             url: checkIcon(item),
-            size: new naver.maps.Size(100, 100),
+            size: new naver.maps.Size(50, 50),
             scaledSize: new naver.maps.Size(50, 50),
             origin: new naver.maps.Point(0, 0),
             anchor: new naver.maps.Point(25, 0)
@@ -184,8 +184,6 @@ function createEventBox(item, date) {
     eventPlace.className = 'event-place';
     eventPlace.textContent = item.place
     contentBox.appendChild(eventPlace);
-
-    contentBox.appendChild(document.createElement('br'));
 
     let eventDate = document.createElement('div');
     eventDate.className = 'event-date';
