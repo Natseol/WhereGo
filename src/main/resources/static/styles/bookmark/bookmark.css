@@ -1,3 +1,7 @@
+.logout-box {
+    text-align: center;
+}
+
 .event-container-book {
     display: grid;
     flex-wrap: wrap;

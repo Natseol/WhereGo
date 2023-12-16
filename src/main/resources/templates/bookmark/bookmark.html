@@ -15,6 +15,9 @@
     <div class="body-style" th:fragment="bookmarkFragment">
         <div th:replace="~{/basic/navigation :: navFragment}"></div>
         <div class="nav-space"></div>
+        <form class="logout-box" action="/logout" method="post">
+            <button class="logout-button btn btn-outline-dark">로그아웃</button>
+        </form>
 
         <th:block th:if="${session.userId != null and session.userId.equals('admin')}">
             <div th:replace="~{/bookmark/admin :: adminFragment}"></div>

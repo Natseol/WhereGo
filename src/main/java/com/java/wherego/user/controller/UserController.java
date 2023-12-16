@@ -40,6 +40,18 @@ public class UserController {
 			e.printStackTrace();
 		}
 		return "redirect:/";
+	}
+	
+	@PostMapping("/logout")
+	public String logoutUser(HttpSession session) {
+		try {
+			session.removeAttribute("Id");
+			session.removeAttribute("userId");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return "redirect:/";
 	}	
 	
 	@PostMapping("/regist")
